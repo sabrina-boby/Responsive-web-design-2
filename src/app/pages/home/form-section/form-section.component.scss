@@ -1,11 +1,5 @@
 @import "variables";
 
-$text-color: #4d4d4f;
-$border-color: #e1e1e2;
-$primary-color: #3434cd;
-$hover-color: #9580a9;
-$font-size-base: 16px;
-
 .simple-section {
   overflow: hidden;
   padding-bottom: 150px;
@@ -34,16 +28,10 @@ $font-size-base: 16px;
   margin-top: 100px;
 
   .header {
-    display: flex;
-    flex-direction: column;
     flex-basis: 40%;
-
-    .header-contact-text,
-    .header-question-text {
-      font-family: $font-en-primary;
-      color: $text-color;
-    }
-
+    color: #4d4d4f;
+    font-family: $font-en-primary;
+    
     .header-contact-text {
       font-size: 12px;
       font-weight: 900;
@@ -59,7 +47,7 @@ $font-size-base: 16px;
       color: $color-black;
 
       .call-icon {
-        color: $primary-color;
+        color: #3434cd;
       }
     }
 
@@ -67,7 +55,6 @@ $font-size-base: 16px;
       display: flex;
       gap: 15px;
       margin-top: 40px;
-      font-family: $font-en-primary;
       font-weight: 700;
 
       a {
@@ -79,7 +66,7 @@ $font-size-base: 16px;
         width: 7px;
         height: 7px;
         border-radius: 100%;
-        background-color: $primary-color;
+        background-color: #3434cd;
         margin-top: 9px;
       }
     }
@@ -87,7 +74,6 @@ $font-size-base: 16px;
 }
 
 .content {
-  display: flex;
   flex-basis: 50%;
   margin: 0 20px;
 }
@@ -97,27 +83,23 @@ $font-size-base: 16px;
   margin-bottom: 1.5rem;
 
   .input-wrapper {
-    display: flex;
-    align-items: center;
     position: relative;
+    width: 100%;
 
     input,
     textarea {
       width: 100%;
       padding: 17px 15px;
-      font-size: $font-size-base;
-      border: 1px solid $border-color;
+      font-size: 16px;
+      border: 1px solid #e1e1e2;
       background-color: white;
       border-radius: 4px;
       transition: border 0.3s;
 
-      &:focus {
-        border: 2px solid lighten($border-color, 30%);
-        outline: none;
-      }
-
+      &:focus,
       &:hover {
-        border-color: darken($border-color, 30%);
+        border-color: darken(#e1e1e2, 30%);
+        outline: none;
       }
     }
 
@@ -132,7 +114,7 @@ $font-size-base: 16px;
       transition: color 0.2s;
 
       &:hover {
-        color: $hover-color;
+        color: #9580a9;
       }
     }
   }
@@ -144,19 +126,17 @@ $font-size-base: 16px;
     padding: 0 0.25rem;
     font-weight: 700;
     font-size: 1rem;
-    color: $hover-color;
+    color: #9580a9;
     opacity: 0.8;
     pointer-events: none;
     transition: 0.2s ease all;
-  }
 
-  .form-control:focus ~ .floating-label,
-  .form-control:not(:placeholder-shown) ~ .floating-label,
-  .form-control:focus ~ .floating-label-message,
-  .form-control:not(:placeholder-shown) ~ .floating-label-message {
-    top: 0;
-    transform: translateY(-100%);
-    font-size: 0.75rem;
+    &.form-control:focus ~ &,
+    &.form-control:not(:placeholder-shown) ~ & {
+      top: 0;
+      transform: translateY(-100%);
+      font-size: 0.75rem;
+    }
   }
 }
 
@@ -177,10 +157,10 @@ $font-size-base: 16px;
     transition: background-color 0.3s;
 
     &:checked {
-      background-color: $primary-color;
+      background-color: #3434cd;
+
       &::before {
         content: "\2714";
-        display: block;
         color: white;
         text-align: center;
         font-size: 16px;
@@ -188,7 +168,7 @@ $font-size-base: 16px;
     }
 
     &:focus {
-      border-color: darken($primary-color, 20%);
+      border-color: darken(#3434cd, 20%);
     }
   }
 }
@@ -200,17 +180,18 @@ $font-size-base: 16px;
   width: 100%;
   padding: 10px 20px;
   background-color: transparent;
-  border: 2px solid $primary-color;
-  color: $primary-color;
+  border: 2px solid #3434cd;
+  color: #3434cd;
   border-radius: 4px;
   cursor: pointer;
-  font-size: $font-size-base;
+  font-size: 16px;
   font-weight: 700;
   transition: all 0.3s;
   opacity: 0.7;
 
   &:hover {
     padding: 10px 30px;
+
     .arrow {
       margin-left: 20px;
     }
@@ -235,7 +216,8 @@ $font-size-base: 16px;
       }
     }
 
-    .header-contact-text {
+    .header-contact-text,
+    .header-number-email a {
       text-align: center;
     }
 
