@@ -1,0 +1,261 @@
+@import "variables";
+
+$text-color: #4d4d4f;
+$border-color: #e1e1e2;
+$primary-color: #3434cd;
+$hover-color: #9580a9;
+$font-size-base: 16px;
+
+.simple-section {
+  overflow: hidden;
+  padding-bottom: 150px;
+}
+
+.form-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .form-bg {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.container-header-content-wraper {
+  position: relative;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  margin-top: 100px;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+
+    .header-contact-text,
+    .header-question-text {
+      font-family: $font-en-primary;
+      color: $text-color;
+    }
+
+    .header-contact-text {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      opacity: 0.5;
+    }
+
+    .header-question-text {
+      font-size: calc($font-title + 10px);
+      font-weight: 800;
+      line-height: 70px;
+      margin-top: 10px;
+      color: $color-black;
+
+      .call-icon {
+        color: $primary-color;
+      }
+    }
+
+    .header-number-email {
+      display: flex;
+      gap: 15px;
+      margin-top: 40px;
+      font-family: $font-en-primary;
+      font-weight: 700;
+
+      a {
+        font-size: $font-title-desc;
+        text-decoration: none;
+      }
+
+      .header-number-email-circle {
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        background-color: $primary-color;
+        margin-top: 9px;
+      }
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-basis: 50%;
+  margin: 0 20px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 17px 15px;
+      font-size: $font-size-base;
+      border: 1px solid $border-color;
+      background-color: white;
+      border-radius: 4px;
+      transition: border 0.3s;
+
+      &:focus {
+        border: 2px solid lighten($border-color, 30%);
+        outline: none;
+      }
+
+      &:hover {
+        border-color: darken($border-color, 30%);
+      }
+    }
+
+    .close-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #ccc;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $hover-color;
+      }
+    }
+  }
+
+  .floating-label,
+  .floating-label-message {
+    position: absolute;
+    left: 1rem;
+    padding: 0 0.25rem;
+    font-weight: 700;
+    font-size: 1rem;
+    color: $hover-color;
+    opacity: 0.8;
+    pointer-events: none;
+    transition: 0.2s ease all;
+  }
+
+  .form-control:focus ~ .floating-label,
+  .form-control:not(:placeholder-shown) ~ .floating-label,
+  .form-control:focus ~ .floating-label-message,
+  .form-control:not(:placeholder-shown) ~ .floating-label-message {
+    top: 0;
+    transform: translateY(-100%);
+    font-size: 0.75rem;
+  }
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e1e8f1;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background-color 0.3s;
+
+    &:checked {
+      background-color: $primary-color;
+      &::before {
+        content: "\2714";
+        display: block;
+        color: white;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+
+    &:focus {
+      border-color: darken($primary-color, 20%);
+    }
+  }
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: $font-size-base;
+  font-weight: 700;
+  transition: all 0.3s;
+  opacity: 0.7;
+
+  &:hover {
+    padding: 10px 30px;
+    .arrow {
+      margin-left: 20px;
+    }
+  }
+
+  .arrow {
+    margin-left: 10px;
+    transition: margin-left 0.3s;
+  }
+}
+
+@media (max-width: 985px) {
+  .container-header-content-wraper {
+    flex-direction: column;
+    width: 95%;
+    align-items: center;
+
+    .header {
+      .header-question-text {
+        font-size: 35px;
+        text-align: center;
+      }
+    }
+
+    .header-contact-text {
+      text-align: center;
+    }
+
+    .header-number-email {
+      flex-direction: column;
+      align-items: center;
+
+      .header-number-email-circle {
+        display: none;
+      }
+
+      a {
+        font-size: 15px;
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+.star-for-email-message {
+  color: red;
+  font-weight: 700;
+}
